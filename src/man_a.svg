@@ -1,0 +1,71 @@
+<svg xmlns="http://w3.org" viewBox="0 0 1024 768" width="100%" height="100%">
+  <!-- Background -->
+  <rect width="1024" height="768" fill="#ffffff" />
+
+  <g id="character">
+    <!-- Torso / Shirt Outline -->
+    <path d="M 192,768 
+             C 192,570 260,470 420,440 
+             L 604,440 
+             C 764,470 832,570 832,768" 
+          fill="none" stroke="#000000" stroke-width="4" stroke-linecap="round" />
+
+    <!-- Neck Structure -->
+    <!-- Back neck shadow/fill boundary -->
+    <path d="M 428,420 C 428,485 596,485 596,420" fill="none" stroke="#000000" stroke-width="4" stroke-linecap="round" />
+    <!-- Heavy black shadow under chin -->
+    <path d="M 416,365 C 416,480 608,480 608,365 C 608,450 416,450 416,365 Z" fill="#000000" />
+
+    <!-- Ears -->
+    <!-- Left Ear -->
+    <path d="M 418,310 C 370,305 375,370 414,360" fill="#ffffff" stroke="#000000" stroke-width="4" stroke-linecap="round" />
+    <path d="M 400,328 C 390,332 392,348 402,345" fill="none" stroke="#000000" stroke-width="3" stroke-linecap="round" />
+    
+    <!-- Right Ear -->
+    <path d="M 606,310 C 654,305 649,370 610,360" fill="#ffffff" stroke="#000000" stroke-width="4" stroke-linecap="round" />
+    <path d="M 624,328 C 634,332 632,348 622,345" fill="none" stroke="#000000" stroke-width="3" stroke-linecap="round" />
+
+    <!-- Head / Face Base Base Outline -->
+    <path d="M 414,354 C 414,410 610,410 610,354 L 610,260 C 610,200 414,200 414,260 Z" fill="#ffffff" stroke="#000000" stroke-width="4" stroke-linejoin="round" />
+
+    <!-- Hair -->
+    <!-- Main Hair Mass -->
+    <path d="M 414,270 
+             C 405,210 440,165 512,165 
+             C 584,165 619,210 610,270
+             C 595,250 580,240 560,250
+             C 550,225 515,220 500,245
+             C 490,235 470,235 455,252
+             C 440,240 425,245 414,270 Z" fill="#000000" stroke="#000000" stroke-width="2" />
+    
+    <!-- Forelock / Hair Strand Details -->
+    <path d="M 492,230 C 500,210 525,212 522,232" fill="none" stroke="#000000" stroke-width="4" stroke-linecap="round" />
+
+    <!-- Brows -->
+    <!-- Left Eyebrow -->
+    <path d="M 440,244 C 452,234 472,236 478,250" fill="none" stroke="#000000" stroke-width="5" stroke-linecap="round" />
+    <!-- Right Eyebrow (Expressive/Wavy) -->
+    <path d="M 544,250 C 550,232 568,228 574,238 C 580,244 586,242 592,234" fill="none" stroke="#000000" stroke-width="5" stroke-linecap="round" />
+
+    <!-- Eyes and Glasses -->
+    <!-- Left Glass Frame & Lens Fill -->
+    <circle cx="463" cy="292" r="44" fill="#ffffff" stroke="#000000" stroke-width="5" />
+    <!-- Right Glass Frame & Lens Fill -->
+    <circle cx="561" cy="292" r="44" fill="#ffffff" stroke="#000000" stroke-width="5" />
+    <!-- Glasses Bridge -->
+    <path d="M 507,292 C 512,286 512,286 517,292" fill="none" stroke="#000000" stroke-width="5" stroke-linecap="round" />
+
+    <!-- Left Pupil & Eye Details -->
+    <circle cx="472" cy="286" r="8" fill="#000000" />
+    <circle cx="474" cy="282" r="2.5" fill="#ffffff" />
+    <!-- Right Pupil & Eye Details -->
+    <circle cx="552" cy="286" r="8" fill="#000000" />
+    <circle cx="554" cy="282" r="2.5" fill="#ffffff" />
+
+    <!-- Nose -->
+    <path d="M 506,324 C 506,334 518,334 518,324" fill="none" stroke="#000000" stroke-width="4" stroke-linecap="round" />
+
+    <!-- Mouth -->
+    <path d="M 502,352 C 508,358 514,358 520,352" fill="none" stroke="#000000" stroke-width="4" stroke-linecap="round" />
+  </g>
+</svg>
