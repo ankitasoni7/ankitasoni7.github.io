@@ -8,7 +8,7 @@ const projectList = [
     industry: 'Travel App',
     services: ['UX Research', 'UI/UX Design', 'Design System'],
     image: 'https://picsum.photos/seed/mlmt-list/800/600',
-    to: '/project/kora',
+    to: '/mlmt-v2',
   },
   {
     index: '02',
@@ -28,19 +28,11 @@ const projectList = [
   },
   {
     index: '04',
-    name: 'My Last Minute Trip — V2',
-    industry: 'Travel App · Redesigned layout',
-    services: ['Editorial', 'Motion', 'Bento'],
-    image: 'https://picsum.photos/seed/mlmt-v2-list/800/600',
-    to: '/project-v2',
-  },
-  {
-    index: '05',
     name: 'Kaatkut',
     industry: 'Meat & Seafood Delivery',
     services: ['UX Research', 'UI/UX Design', 'Design System'],
     image: 'https://picsum.photos/seed/kaatkut-list/800/600',
-    to: '/project3',
+    to: '/kaatkut-v2',
   },
 ]
 

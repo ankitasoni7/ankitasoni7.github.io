@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
@@ -101,25 +102,17 @@ export default function Footer() {
         <div className="footer2-row">
           <div className="footer2-col">
             <span className="footer2-label">Email</span>
-            <a href="mailto:joseph@launchnow.design" className="footer2-link-lg">
-              joseph@launchnow.design
+            <a href="mailto:ankitasoni7uiux@gmail.com" className="footer2-link-lg">
+              ankitasoni7uiux@gmail.com
             </a>
           </div>
           <div className="footer2-col">
             <span className="footer2-label">Call Me</span>
-            <a href="#contact" className="footer2-link-lg">Book Now</a>
+            <Link to="/#contact" className="footer2-link-lg">Book a call</Link>
           </div>
           <div className="footer2-col">
-            <span className="footer2-label">Social</span>
-            <div className="footer2-socials">
-              <a href="#" className="footer2-social footer2-social--wide">
-                <span aria-hidden="true">𝕏</span> 1,214
-              </a>
-              <a href="#" className="footer2-social" aria-label="Instagram">IG</a>
-              <a href="#" className="footer2-social" aria-label="Dribbble">Dr</a>
-              <a href="#" className="footer2-social" aria-label="Behance">Bē</a>
-              <a href="#" className="footer2-social" aria-label="LinkedIn">in</a>
-            </div>
+            <span className="footer2-label">Based in</span>
+            <span className="footer2-link-lg">Vancouver, BC</span>
           </div>
         </div>
 
@@ -130,21 +123,21 @@ export default function Footer() {
           <div className="footer2-col">
             <span className="footer2-label">Menu</span>
             <div className="footer2-links-grid">
-              <a href="#work">Work</a>
-              <a href="#services">Services</a>
-              <a href="#assistant">Pricing</a>
-              <a href="#">Blog</a>
+              <Link to="/#work">Work</Link>
+              <Link to="/#services">Services</Link>
+              <Link to="/#about">About</Link>
+              <Link to="/#contact">Contact</Link>
             </div>
           </div>
           <div className="footer2-col">
-            <span className="footer2-label">Legal</span>
+            <span className="footer2-label">Case studies</span>
             <div className="footer2-links-grid footer2-links-grid--one">
-              <a href="#">Terms of service</a>
-              <a href="#">Privacy Policy</a>
+              <Link to="/mlmt-v2">My Last Minute Trip</Link>
+              <Link to="/kaatkut-v2">Kaatkut</Link>
             </div>
           </div>
           <div className="footer2-col footer2-col--copy">
-            <span className="footer2-copy">© 2026 creativebrains</span>
+            <span className="footer2-copy">© 2026 Ankita Soni · All rights reserved</span>
           </div>
         </div>
       </div>

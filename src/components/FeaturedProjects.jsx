@@ -9,7 +9,7 @@ export const featured = [
     category: 'Food Tech · Marketplace',
     tag: 'UI/UX',
     chip: 'chip-blue',
-    to: '/project3',
+    to: '/kaatkut-v2',
     image: '/projects/home-v2/kaatkut.png',
   },
   {
@@ -27,7 +27,7 @@ export const featured = [
     category: 'Travel · Planning App',
     tag: 'UI/UX',
     chip: 'chip-blue',
-    to: '/project/kora',
+    to: '/mlmt-v2',
     image: '/projects/home-v2/mlmt.png',
   },
   {

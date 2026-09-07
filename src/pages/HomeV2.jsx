@@ -3,6 +3,7 @@ import Reveal from '../components/Reveal.jsx'
 import FeaturedProjects from '../components/FeaturedProjects.jsx'
 // Sections carried over from homepage v1, untouched
 import About from '../components/About.jsx'
+import AboutV2 from '../components/AboutV2.jsx'
 import Process from '../components/Process.jsx'
 import Services from '../components/Services.jsx'
 import FAQ from '../components/FAQ.jsx'
@@ -106,6 +107,7 @@ export default function HomeV2() {
 
       {/* ── Sections carried over from homepage v1 ─────────────── */}
       <About />
+      <AboutV2 />
       <Process />
       <Services />
       <FAQ />

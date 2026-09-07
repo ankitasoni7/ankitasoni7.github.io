@@ -377,7 +377,7 @@ export default function ProjectDetailMLMT() {
 
       {/* Next project */}
       <NextProject
-        to="/project3"
+        to="/kaatkut-v2"
         title="Kaatkut"
         category="Food Tech · Marketplace"
         tag="UI/UX · 2025"

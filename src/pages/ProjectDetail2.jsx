@@ -522,7 +522,7 @@ export default function ProjectDetail2() {
       {/* Next project */}
       <section className="pd-next container">
         <Reveal>
-          <Link to="/project/kora" className="pd-next-link">
+          <Link to="/mlmt-v2" className="pd-next-link">
             <span className="pd-next-label">Next project</span>
             <span className="pd-next-title">My Last Minute Trip</span>
             <span className="pd-next-arrow">→</span>

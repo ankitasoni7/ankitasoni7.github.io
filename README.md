@@ -1,6 +1,13 @@
 # Creative Brain
 
-A minimal design portfolio built with React + Vite.
+The personal design portfolio of Ankita Soni — built with React + Vite.
+Live at **https://ankitasoni7.github.io**
+
+> **This is not open-source.** The code, case-study writing and design assets in
+> this repository are © 2026 Ankita Soni, all rights reserved. They are published
+> so the site can be hosted, not for reuse. Please don't copy, fork-and-deploy, or
+> republish any part of it — see [LICENSE](LICENSE). If you'd like to use
+> something here, ask.
 
 ## Stack
 
