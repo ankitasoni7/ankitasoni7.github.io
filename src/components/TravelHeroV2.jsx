@@ -16,7 +16,14 @@ const NOTES = [
   { app: 'Calendar', title: 'Museum Today', prev: 'Zürich · 10:00 AM', time: '9:40', emoji: '📅', bg: '#FF3B30', pos: { left: '77%', top: '13%' }, eye: { x: 6, y: -5 } },
 ]
 
-export default function TravelHeroV2({ project }) {
+// Three lines only, each held long enough to read.
+const SAYS = [
+  'Where’s my flight confirmation?',
+  'And the hotel voucher… which app?',
+  'Everything’s booked — nothing’s together.',
+]
+
+export default function TravelHeroV2({ project, left }) {
   const root = useRef(null)
 
   useEffect(() => {
@@ -29,7 +36,7 @@ export default function TravelHeroV2({ project }) {
       const notes = q('.hv2-note')
       const phone = q('.hv2-phone')[0]
       const pupils = q('.hv2-pupil')
-      const bubble = q('.hv2-bubble')[0]
+      const bubbles = q('.hv2-bubble')
       const figure = q('.hv2-figure')[0]
       const bg = q('.dhz-bg')[0]
       const chrome = q('.dh-top, .dh-title, .dh-status, .dh-sec')
@@ -57,7 +64,7 @@ export default function TravelHeroV2({ project }) {
         }))
         gsap.set(phone, { autoAlpha: 0, scale: 0.9, transformOrigin: '50% 50%' })
         gsap.set(figure, { autoAlpha: 1, y: 0 })
-        gsap.set(bubble, { autoAlpha: 0, y: 8, scale: 0.96, transformOrigin: '50% 100%' })
+        gsap.set(bubbles, { autoAlpha: 0, y: 8, scale: 0.96, transformOrigin: '50% 100%' })
         gsap.set(pupils, { x: 0, y: 0 })
         gsap.set([...chrome, ...items], { autoAlpha: 0, y: 16 })
         if (bg) gsap.set(bg, { scale: 1, yPercent: 0 })
@@ -73,13 +80,26 @@ export default function TravelHeroV2({ project }) {
       story = gsap.timeline({ paused: true, onComplete: startKenBurns })
 
       // ── SCENE 1 — the problem ──
-      story.to(bubble, { autoAlpha: 1, y: 0, scale: 1, duration: 0.6, ease: 'power3.out' }, 0.2)
+      // Notifications land quickly, one after another; the speech bubble swaps
+      // to the matching worry as each one arrives.
+      const GAP = 0.95 // seconds between notifications
       NOTES.forEach((nt, i) => {
-        const at = 0.7 + i * 1.5
-        story.to(notes[i], { autoAlpha: 1, y: 2, scale: 1, duration: 0.6, ease: 'power3.out' }, at)
-        story.to(pupils, { x: nt.eye.x, y: nt.eye.y, duration: 0.5, ease: 'power2.inOut' }, at) // eyes track & stay
+        const at = 0.55 + i * GAP
+        story.to(notes[i], { autoAlpha: 1, y: 2, scale: 1, duration: 0.45, ease: 'power3.out' }, at)
+        story.to(pupils, { x: nt.eye.x, y: nt.eye.y, duration: 0.4, ease: 'power2.inOut' }, at)
       })
-      const pauseAt = 0.7 + NOTES.length * 1.5
+      const notesEnd = 0.55 + NOTES.length * GAP
+
+      // Three thoughts, each held ~2.2s so they can actually be read.
+      const HOLD = 2.2
+      SAYS.forEach((_, i) => {
+        const at = 0.25 + i * HOLD
+        story.to(bubbles[i], { autoAlpha: 1, y: 0, scale: 1, duration: 0.4, ease: 'power3.out' }, at)
+        if (i < SAYS.length - 1) {
+          story.to(bubbles[i], { autoAlpha: 0, y: -6, duration: 0.3, ease: 'power2.in' }, at + HOLD - 0.25)
+        }
+      })
+      const pauseAt = Math.max(notesEnd, 0.25 + SAYS.length * HOLD)
       story.to(pupils, { x: -6, y: -6, duration: 0.4, ease: 'power2.inOut' }, pauseAt + 0.3)
       story.to(pupils, { x: 6, y: -5, duration: 0.4, ease: 'power2.inOut' }, pauseAt + 0.85)
 
@@ -87,6 +107,7 @@ export default function TravelHeroV2({ project }) {
       const converge = pauseAt + 1.6
       story.addLabel('converge', converge)
       story.to(notes, { left: '50%', top: '50%', xPercent: -50, yPercent: -50, x: 0, y: 0, scale: 0.26, autoAlpha: 0, duration: 0.8, ease: 'power2.inOut', stagger: 0.04 }, 'converge')
+      story.to(bubbles, { autoAlpha: 0, duration: 0.3, ease: 'power2.in' }, 'converge')
       story.to(figure, { autoAlpha: 0, y: 22, duration: 0.7, ease: 'power2.inOut' }, 'converge')
       story.to(phone, { autoAlpha: 1, scale: 1, duration: 0.95, ease: 'power3.out' }, 'converge+=0.45')
       story.addLabel('reveal', 'converge+=1.15')
@@ -119,8 +140,9 @@ export default function TravelHeroV2({ project }) {
   return (
     <section className="pd-hero hv2" ref={root}>
       <div className="container hv2-grid">
-        {/* LEFT — project info */}
+        {/* LEFT — project info (a page may pass its own copy via `left`) */}
         <div className="hv2-left">
+          {left || (<>
           <Reveal className="pds-logo">
             <span className="pds-logo-mark" aria-hidden="true">
               <svg viewBox="0 0 24 24" width="18" height="18"><path d="M12 2l2.6 6.8L21 11l-6.4 2.2L12 22l-2.6-8.8L3 11l6.4-2.2z" fill="currentColor" /></svg>
@@ -139,6 +161,7 @@ export default function TravelHeroV2({ project }) {
               <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
             </a>
           </Reveal>
+          </>)}
         </div>
 
         {/* RIGHT — the stage: cards → character → phone */}
@@ -156,7 +179,9 @@ export default function TravelHeroV2({ project }) {
 
             {/* the confused traveller, below the cards */}
             <div className="hv2-figure">
-              <span className="hv2-bubble">Where did my flight confirmation go?</span>
+              {SAYS.map((t, i) => (
+                <span className={`hv2-bubble hv2-bubble--${i}`} key={i}>{t}</span>
+              ))}
               <Character className="hv2-char" />
             </div>
 

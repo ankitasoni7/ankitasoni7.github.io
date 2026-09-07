@@ -8,8 +8,11 @@ gsap.registerPlugin(ScrollTrigger)
 const fanRot = [-7, 3, 7]
 const START = 200 // overlap offset while fanned
 const END = 332 // final spread (small gaps between cards)
+// `stacked` variant: cards sit almost fully on top of each other, then snap
+// out to their places in one smooth pass rather than scrubbing with scroll.
+const STACK_START = 34
 
-export default function IssueCards({ items, variant = 'light' }) {
+export default function IssueCards({ items, variant = 'light', stacked = false }) {
   const stageRef = useRef(null)
 
   useEffect(() => {
@@ -25,28 +28,39 @@ export default function IssueCards({ items, variant = 'light' }) {
       // initial fanned/stacked state
       gsap.set(cards, {
         transformOrigin: 'center 130%',
-        x: (i) => (i - mid) * START,
+        x: (i) => (i - mid) * (stacked ? STACK_START : START),
         rotation: (i) => fanRot[i % fanRot.length],
-        scale: 0.96,
+        scale: stacked ? 0.92 : 0.96,
+        zIndex: (i) => cards.length - i,
       })
 
       const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: stage,
-          // begins once you've arrived at the section, finishes as you scroll
-          // through it; scrubbed so scrolling back up restores the fan
-          start: 'top 65%',
-          end: 'top 25%',
-          scrub: 1,
-          invalidateOnRefresh: true,
-        },
+        scrollTrigger: stacked
+          ? {
+              // one-shot: the deck opens in a single smooth move on arrival,
+              // and re-stacks if you scroll back above it
+              trigger: stage,
+              start: 'top 72%',
+              toggleActions: 'play none none reverse',
+              invalidateOnRefresh: true,
+            }
+          : {
+              // begins once you've arrived at the section, finishes as you scroll
+              // through it; scrubbed so scrolling back up restores the fan
+              trigger: stage,
+              start: 'top 65%',
+              end: 'top 25%',
+              scrub: 1,
+              invalidateOnRefresh: true,
+            },
       })
       tl.to(cards, {
         x: (i) => (i - mid) * END,
         rotation: 0,
         scale: 1,
-        ease: 'power2.out',
-        stagger: 0.08,
+        ease: stacked ? 'power3.out' : 'power2.out',
+        duration: stacked ? 1.1 : undefined,
+        stagger: stacked ? 0.1 : 0.08,
       })
     })
 
@@ -57,7 +71,7 @@ export default function IssueCards({ items, variant = 'light' }) {
       clearTimeout(t)
       mm.revert()
     }
-  }, [items])
+  }, [items, stacked])
 
   return (
     <div className="ps-track">

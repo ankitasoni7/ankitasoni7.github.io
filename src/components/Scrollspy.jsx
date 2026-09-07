@@ -13,6 +13,8 @@ const shortLabels = {
   solution: 'Solution',
   diagram: 'Diagram',
   'design-system': 'Design',
+  'design-thinking': 'Iteration',
+  'information-hierarchy': 'Hierarchy',
   'high-fidelity-wireframes': 'Wireframes',
   'final-screens': 'Final',
 }
@@ -100,6 +102,17 @@ const icons = {
       <circle cx="7.5" cy="11" r="1" fill="currentColor" stroke="none" />
       <circle cx="12" cy="7.5" r="1" fill="currentColor" stroke="none" />
       <circle cx="16.5" cy="11" r="1" fill="currentColor" stroke="none" />
+    </>
+  ),
+  'design-thinking': svg(
+    <>
+      <path d="M12 3a6 6 0 0 0-3.6 10.8c.5.4.8 1 .9 1.7l.1.5h5.2l.1-.5c.1-.7.4-1.3.9-1.7A6 6 0 0 0 12 3Z" />
+      <path d="M9.5 19h5M10 21.5h4" />
+    </>
+  ),
+  'information-hierarchy': svg(
+    <>
+      <path d="M4 5h16M4 10h11M4 15h7M4 20h4" />
     </>
   ),
   'high-fidelity-wireframes': svg(

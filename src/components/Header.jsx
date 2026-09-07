@@ -4,7 +4,7 @@ export default function Header() {
   return (
     <header className="header">
       <div className="header-inner">
-        <a href="#home" className="logo logo-anim" aria-label="Creative Brain">
+        <Link to="/" className="logo logo-anim" aria-label="Creative Brain">
           <span className="logo-mark" aria-hidden="true">
             <svg viewBox="0 0 100 100">
               <path d="M50 2C56 38 62 44 98 50C62 56 56 62 50 98C44 62 38 56 2 50C38 44 44 38 50 2Z" />
@@ -23,14 +23,14 @@ export default function Header() {
             ))}
           </span>
           <span className="logo-shine" aria-hidden="true" />
-        </a>
+        </Link>
 
         <nav>
           <ul className="header-nav">
-            <li><a href="#home">Home</a></li>
+            <li><Link to="/">Home</Link></li>
             <li><Link to="/projects">Work</Link></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><Link to="/#about">About</Link></li>
+            <li><Link to="/#contact">Contact</Link></li>
           </ul>
         </nav>
 
@@ -39,7 +39,7 @@ export default function Header() {
             <span className="availability-dot" />
             Available for projects
           </span>
-          <a href="#contact" className="btn btn-primary">Contact me</a>
+          <Link to="/#contact" className="btn btn-primary">Contact me</Link>
         </div>
       </div>
     </header>

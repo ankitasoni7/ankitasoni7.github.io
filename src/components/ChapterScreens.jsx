@@ -45,7 +45,7 @@ const Knife = () => (
   </svg>
 )
 
-export default function ChapterScreens() {
+export default function ChapterScreens({ chapters: chaptersProp = CHAPTERS }) {
   const root = useRef(null)
 
   useEffect(() => {
@@ -62,11 +62,15 @@ export default function ChapterScreens() {
       holdPx: 0, revealPx: 0, total: 0, top: 0, open: false,
     }))
 
-    // The site header is sticky at the top, so the stage has to pin below it.
+    // The site header is sticky at the top, so the stage has to pin below it —
+    // as does a page-level sticky chapter nav when the page has one.
     const header = document.querySelector('.header')
+    const nav = document.querySelector('.mv-nav')
 
     const measure = () => {
-      const offset = header ? Math.round(header.getBoundingClientRect().height) : 0
+      const h = header ? header.getBoundingClientRect().height : 0
+      const n = nav ? nav.getBoundingClientRect().height : 0
+      const offset = Math.round(h + n)
       el.style.setProperty('--chs-top', offset + 'px')
       const stageH = window.innerHeight - offset
 
@@ -128,7 +132,7 @@ export default function ChapterScreens() {
 
   return (
     <div className="chs" ref={root}>
-      {CHAPTERS.map((c) => {
+      {chaptersProp.map((c) => {
         const text = (
           <div className="chs-text">
             <span className="chs-kicker">{c.kicker}</span>

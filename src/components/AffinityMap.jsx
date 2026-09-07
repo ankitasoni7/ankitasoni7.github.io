@@ -47,7 +47,18 @@ const clusters = [
 // a few fixed tilt angles so notes look hand-placed but stay stable
 const tilts = ['-2.4deg', '1.8deg', '2.2deg', '-1.6deg']
 
-export default function AffinityMap({ author = 'Ankita Soni' }) {
+// Research participants, cycled across the notes so each quote is attributed
+// to a person rather than to the researcher.
+const DEFAULT_PARTICIPANTS = [
+  'P1, family planner',
+  'P2, business traveller',
+  'P3, group organiser',
+  'P4, solo traveler',
+  'P5, frequent flyer',
+  'P6, first-time traveller',
+]
+
+export default function AffinityMap({ participants = DEFAULT_PARTICIPANTS }) {
   const ref = useRef(null)
   const [show, setShow] = useState(false)
 
@@ -79,7 +90,7 @@ export default function AffinityMap({ author = 'Ankita Soni' }) {
                     style={{ '--tilt': tilts[i % tilts.length], '--d': `${i * 45}ms` }}
                   >
                     <p className="afm-note-text">“{note}”</p>
-                    <span className="afm-note-author">{author}</span>
+                    <span className="afm-note-author">{participants[i % participants.length]}</span>
                   </article>
                 )
               })}

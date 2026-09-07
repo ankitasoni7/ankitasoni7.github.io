@@ -117,23 +117,36 @@ function Thread({ chat, start }) {
         {chat.title}
       </div>
       <div className="rchat-body">
-        {chat.messages.slice(0, shown).map((m, i) => (
-          <div key={i} className={`rchat-msg rchat-msg--${m.from}`}>
-            <span className="rchat-avatar">{avatarFor(m.from)}</span>
-            <span className="rchat-bubble">{m.text}</span>
-          </div>
-        ))}
+        {/* Hidden copy of the full conversation — reserves the final height up
+            front so the page below never shifts as messages arrive. */}
+        <div className="rchat-ghost" aria-hidden="true">
+          {chat.messages.map((m, i) => (
+            <div key={i} className={`rchat-msg rchat-msg--${m.from}`}>
+              <span className="rchat-avatar">{avatarFor(m.from)}</span>
+              <span className="rchat-bubble">{m.text}</span>
+            </div>
+          ))}
+        </div>
 
-        {typing && nextFrom && (
-          <div className={`rchat-msg rchat-msg--${nextFrom}`}>
-            <span className="rchat-avatar">{avatarFor(nextFrom)}</span>
-            <span className="rchat-bubble rchat-typing">
-              <span className="rchat-dot" />
-              <span className="rchat-dot" />
-              <span className="rchat-dot" />
-            </span>
-          </div>
-        )}
+        <div className="rchat-live">
+          {chat.messages.slice(0, shown).map((m, i) => (
+            <div key={i} className={`rchat-msg rchat-msg--${m.from}`}>
+              <span className="rchat-avatar">{avatarFor(m.from)}</span>
+              <span className="rchat-bubble">{m.text}</span>
+            </div>
+          ))}
+
+          {typing && nextFrom && (
+            <div className={`rchat-msg rchat-msg--${nextFrom}`}>
+              <span className="rchat-avatar">{avatarFor(nextFrom)}</span>
+              <span className="rchat-bubble rchat-typing">
+                <span className="rchat-dot" />
+                <span className="rchat-dot" />
+                <span className="rchat-dot" />
+              </span>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   )

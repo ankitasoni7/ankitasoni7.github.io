@@ -25,7 +25,7 @@ const hideOnMissing = (e) => { e.currentTarget.style.display = 'none' }
 // Realistic WireframeMorph high-fi phone frame (wm-high-phone), reused here.
 // `scroll` = page-linked scrolling image (centre); `autoScroll` = self-scrolling
 // image with hover control (sides); otherwise a static cover image.
-function WmPhone({ image, trackRef, large = false, scroll = false, autoScroll = false, onError }) {
+export function WmPhone({ image, trackRef, large = false, scroll = false, autoScroll = false, onError }) {
   return (
     <div className={`wm-phone itsc-wmphone${large ? ' itsc-wmphone--lg' : ''}`}>
       <div className="wm-high-phone">
