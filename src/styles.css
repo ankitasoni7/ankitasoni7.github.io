@@ -8884,8 +8884,14 @@ a {
 /* ── problem characters ── */
 .mv-pchars { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(18px, 2.4vw, 26px); }
 .mv-pchar { border: 1px solid var(--rule); border-radius: 20px; padding: clamp(24px, 2.6vw, 34px); background: #fff; display: flex; flex-direction: column; }
-.mv-pchar-illus { width: 100%; max-width: 172px; height: auto; margin: 0 auto clamp(14px, 2vw, 22px); }
-.mv-pchar-illus .qm { font-size: 48px; font-weight: 600; fill: var(--rule-2); stroke: none; }
+/* the hero character, reused as the face of each problem card */
+.mv-pchar-figure {
+  display: block;
+  width: 100%;
+  max-width: 150px;
+  margin: 0 auto clamp(14px, 2vw, 22px);
+}
+.mv-pchar-figure .hv2-svg { width: 100%; height: auto; display: block; }
 .mv-pchar-n { font-size: 16px; color: var(--faint); margin-bottom: 6px; font-variant-numeric: tabular-nums; }
 .mv-pchar h3 { font-size: clamp(18px, 2.1vw, 21px); font-weight: 600; letter-spacing: -0.01em; }
 .mv-pchar > p { color: var(--muted); margin-top: 10px; line-height: 1.55; font-size: 14.5px; flex: 1 0 auto; }
@@ -8936,7 +8942,7 @@ a {
 .mv-ideas { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(22px, 3vw, 44px) clamp(20px, 4vw, 56px); padding: 12px 0; }
 .mv-idea {
   position: relative; background: #FCE38A; color: #4a3d12;
-  font-family: var(--hand-f); font-size: 20px; line-height: 1.3;
+  font-family: var(--hand-f); font-size: 27px; line-height: 1.3;
   padding: 24px 20px 20px; border-radius: 2px; min-height: 118px;
   display: flex; align-items: center; transform: rotate(var(--r, 0deg));
   box-shadow: 0 14px 26px -14px rgba(120, 90, 0, 0.45), 0 2px 4px rgba(0, 0, 0, 0.06);
@@ -9405,3 +9411,76 @@ a {
 /* section 06 shows the live home dashboard rather than a screenshot */
 .mv-hifi-phone { --w: clamp(260px, 22vw, 320px); }
 .mv .mv-layer--hifi { width: 100%; display: grid; place-items: center; }
+
+/* ── Kaatkut v2 · process sections ────────────────────────────────────── */
+.kk-sub { margin-top: clamp(46px, 6vw, 76px); }
+.kk-sub .mv-head { margin-bottom: clamp(26px, 3vw, 40px); }
+.kk-obj--4 { grid-template-columns: repeat(4, 1fr); }
+
+/* the survey method rows read as a table, not as tasks */
+.kk-method > div { grid-template-columns: 8.5rem minmax(0, 1fr); }
+.kk-method i { grid-column: 2; font-size: 14.5px; line-height: 1.55; color: var(--ink-2); }
+
+/* card studies: sketch above the field list on the "before" side */
+.kk-panel .kk-panel-sk {
+  background: var(--paper-2); border: 1px solid var(--rule);
+  border-radius: 12px; padding: 14px; margin-bottom: 18px;
+}
+.kk-panel .mv-hand-list li { font-size: 18px; }
+.kk .mv-sticky p { font-size: 17px; }
+.kk .mv-needs ul { grid-template-columns: repeat(5, 1fr); }
+
+@media (max-width: 1024px) {
+  .kk-obj--4 { grid-template-columns: repeat(2, 1fr); }
+  .kk-method > div { grid-template-columns: 1fr; }
+  .kk-method i { grid-column: 1; }
+}
+@media (max-width: 640px) {
+  .kk-obj--4 { grid-template-columns: 1fr; }
+}
+
+/* ── Portrait treatment: one photo, black and white everywhere ────────── */
+.hv-portrait-frame img,
+.abt-photo img,
+.about2-media-img {
+  filter: grayscale(1) contrast(1.04);
+  object-fit: cover;
+  object-position: 50% 28%;
+}
+
+/* ── Kaatkut v2 · the three differentiating bets ──────────────────────── */
+.kk-bet {
+  display: grid; grid-template-columns: 0.9fr 1.1fr;
+  gap: clamp(24px, 4vw, 52px); align-items: center;
+  background: #fff; border: 1px solid var(--rule);
+  border-radius: 18px; padding: clamp(24px, 3.5vw, 40px);
+}
+.kk-bet + .kk-bet { margin-top: clamp(18px, 2.4vw, 26px); }
+.kk-bet.is-flip .kk-bet-sk { order: 2; }
+.kk-bet-sk { background: var(--paper-2); border: 1px solid var(--rule); border-radius: 14px; padding: 16px; }
+.kk-bet-n {
+  font-size: 11.5px; font-weight: 700; letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--accent);
+}
+.kk-bet-copy h3 {
+  margin-top: 8px; font-size: clamp(19px, 2.3vw, 25px);
+  font-weight: 600; letter-spacing: -0.02em; line-height: 1.15;
+}
+.kk-bet-rows { margin-top: 20px; }
+.kk-bet-rows > div { padding: 14px 0; border-top: 1px solid var(--rule); }
+.kk-bet-rows span {
+  display: block; margin-bottom: 5px;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--faint);
+}
+.kk-bet-rows p { font-size: 14.5px; line-height: 1.55; color: var(--ink-2); }
+.kk-bet-guard {
+  margin-top: 16px; padding-left: 14px;
+  border-left: 2px solid var(--accent);
+  font-size: 13.5px; line-height: 1.5; color: var(--muted);
+}
+
+@media (max-width: 900px) {
+  .kk-bet, .kk-bet.is-flip { grid-template-columns: 1fr; }
+  .kk-bet.is-flip .kk-bet-sk { order: 0; }
+}

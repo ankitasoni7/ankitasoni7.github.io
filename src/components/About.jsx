@@ -13,22 +13,22 @@ const cards = [
   {
     label: 'What I do',
     text: 'I help brands find clarity and express it through strong, thoughtful design.',
-    img: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=560&h=720&q=80',
+    img: '/avatars/ankita.jpg',
   },
   {
     label: 'My Journey',
     text: "My journey into UI/UX design began with a natural passion for creativity and visual expression. From an early age, I was drawn to drawing, crafts, and the process of turning ideas into something tangible. As I realized the importance of adapting to a rapidly evolving digital world, I discovered UI/UX design — a field where creativity meets innovation. It felt like the perfect path, allowing me to combine design thinking, problem-solving, and technology to create experiences that people don't just see, but interact with every day.",
-    img: 'https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=560&h=720&q=80',
+    img: '/avatars/ankita.jpg',
   },
   {
     label: 'Career',
     text: 'From in-house design teams to leading studio projects, I’ve shipped work across branding, product and motion for clients worldwide.',
-    img: 'https://images.unsplash.com/photo-1488161628813-04466f872be2?auto=format&fit=crop&w=560&h=720&q=80',
+    img: '/avatars/ankita.jpg',
   },
   {
     label: 'Experience',
     text: 'A decade of turning strategy into craft — every screen, mark and interaction built to move a real business metric.',
-    img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=560&h=720&q=80',
+    img: '/avatars/ankita.jpg',
   },
 ]
 
@@ -138,6 +138,7 @@ export default function About() {
                 src={c.img}
                 alt=""
                 loading="lazy"
+                onError={(e) => { e.currentTarget.style.visibility = 'hidden' }}
                 style={{ opacity: i === 0 ? 1 : 0 }}
               />
             ))}

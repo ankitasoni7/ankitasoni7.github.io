@@ -5,6 +5,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { getProject } from '../data/projects.js'
 import Reveal from '../components/Reveal.jsx'
 import TravelHeroV2 from '../components/TravelHeroV2.jsx'
+import Character from '../components/Character.jsx'
 import ItineraryShowcase, { WmPhone } from '../components/ItineraryShowcase.jsx'
 import PhoneDashboard from '../components/PhoneDashboard.jsx'
 import NextProject from '../components/NextProject.jsx'
@@ -389,72 +390,10 @@ const panels = [
   },
 ]
 
-/* ── problem illustrations ── */
-const PChar1 = () => (
-  <svg viewBox="0 0 200 210" className="mv-pchar-illus" fill="none" stroke="#1A1A18" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-    <g strokeWidth="2.4"><rect x="12" y="20" width="30" height="21" rx="5" /><path d="M18 28h16M18 34h10" /><rect x="158" y="15" width="30" height="21" rx="5" /><path d="M164 23h16M164 29h10" /><rect x="162" y="70" width="30" height="21" rx="5" /><path d="M168 78h16M168 84h10" /></g>
-    <g strokeWidth="1.8" strokeDasharray="2 5"><path d="M72 54 q-16 -12 -30 -18" /><path d="M128 50 q16 -14 30 -20" /><path d="M131 74 q16 0 30 4" /></g>
-    <ellipse cx="100" cy="60" rx="30" ry="31" fill="#fff" />
-    <path d="M86 33 q8 -7 15 -2" />
-    <circle cx="90" cy="58" r="4.2" fill="#fff" /><circle cx="90" cy="59" r="2" fill="#1A1A18" stroke="none" />
-    <circle cx="110" cy="58" r="4.2" fill="#fff" /><circle cx="110" cy="59" r="2" fill="#1A1A18" stroke="none" />
-    <path d="M82 47 l10 3" strokeWidth="3" /><path d="M118 47 l-10 3" strokeWidth="3" />
-    <path d="M90 74 q5 4 10 0 q5 -4 10 0" strokeWidth="3" />
-    <path d="M100 91 v8" />
-    <path d="M100 104 q-20 4 -25 18" /><path d="M100 104 q20 4 25 18" />
-    <rect x="82" y="118" width="36" height="24" rx="3" transform="rotate(-5 100 130)" fill="#fff" />
-    <path d="M88 126h22M88 132h14" strokeWidth="2.2" />
-    <path d="M100 104 v34" />
-    <path d="M100 138 l-14 50" /><path d="M100 138 l14 50" />
-    <path d="M86 188 l-9 3M114 188 l9 3" />
-  </svg>
-)
-
-const PChar2 = () => (
-  <svg viewBox="0 0 200 210" className="mv-pchar-illus" fill="none" stroke="#1A1A18" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-    <text className="qm" x="150" y="52">?</text>
-    <ellipse cx="100" cy="60" rx="30" ry="31" fill="#fff" />
-    <path d="M86 33 q8 -7 15 -2" />
-    <circle cx="90" cy="58" r="3.6" fill="#1A1A18" stroke="none" />
-    <circle cx="110" cy="58" r="3.6" fill="#1A1A18" stroke="none" />
-    <path d="M82 50 l10 2" strokeWidth="3" /><path d="M118 44 l-10 4" strokeWidth="3" />
-    <path d="M91 74 q9 -5 18 0" strokeWidth="3" />
-    <path d="M100 91 v8" />
-    <path d="M100 104 q-22 3 -27 19" />
-    <rect x="66" y="120" width="34" height="23" rx="3" transform="rotate(-7 83 131)" fill="#fff" />
-    <path d="M72 127h20M72 133h13" strokeWidth="2.2" />
-    <path d="M100 104 q20 -2 30 -16" />
-    <path d="M100 104 v34" />
-    <path d="M100 138 l-14 50" /><path d="M100 138 l14 50" />
-    <path d="M86 188 l-9 3M114 188 l9 3" />
-  </svg>
-)
-
-const PChar3 = () => (
-  <svg viewBox="0 0 200 210" className="mv-pchar-illus" fill="none" stroke="#1A1A18" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-    <g strokeWidth="2.6"><path d="M150 40 a16 16 0 0 1 26 0" /><path d="M156 48 a9 9 0 0 1 14 0" /><circle cx="163" cy="55" r="1.8" fill="#1A1A18" stroke="none" /><path d="M150 34 l26 26" strokeWidth="3" /></g>
-    <ellipse cx="96" cy="58" rx="30" ry="31" fill="#fff" />
-    <path d="M82 31 q8 -7 15 -2" />
-    <circle cx="86" cy="56" r="3.4" fill="#1A1A18" stroke="none" />
-    <circle cx="106" cy="56" r="3.4" fill="#1A1A18" stroke="none" />
-    <path d="M78 50 l10 -3" strokeWidth="3" /><path d="M114 50 l-10 -3" strokeWidth="3" />
-    <path d="M86 72 l4 3 4 -3 4 3 4 -3" strokeWidth="3" />
-    <path d="M96 89 v9" />
-    <path d="M96 102 q18 -2 30 -14" />
-    <rect x="120" y="80" width="30" height="22" rx="3" transform="rotate(10 135 91)" fill="#fff" />
-    <path d="M126 87h18M126 93h11" strokeWidth="2.2" />
-    <path d="M96 102 q-18 6 -22 22" />
-    <path d="M96 102 v32" />
-    <path d="M96 134 l-20 46 M76 180 l-10 1" />
-    <path d="M96 134 l20 40 M116 174 l10 3" />
-    <g strokeWidth="2" strokeLinecap="round"><path d="M52 150h-12M56 164h-16M60 178h-12" /></g>
-  </svg>
-)
-
 const problems = [
-  [PChar1, '01', 'Fragmented information', 'One trip lived across email, SMS, PDFs and chat threads. Reconstructing it meant hunting — slow, and stressful under time pressure.', 'Priya Nair · Solo traveller', 'one unified hub for every booking, document and itinerary.'],
-  [PChar2, '02', 'Uncertainty during travel', 'Without a clear view of what’s next, travellers second-guessed schedules and re-checked the same details over and over on the move.', 'Meera Joshi · Weekend tripper', 'a clear daily plan that keeps the next step always in view.'],
-  [PChar3, '03', 'Poor access on the go', 'The one detail that mattered was hard to reach fast — especially offline — exactly when a traveller was standing at a gate or a counter.', 'Arjun Rao · Family planner', 'offline-ready access, cached for the moment it’s needed.'],
+  ['01', 'Fragmented information', 'One trip lived across email, SMS, PDFs and chat threads. Reconstructing it meant hunting — slow, and stressful under time pressure.', 'Priya Nair · Solo traveller', 'one unified hub for every booking, document and itinerary.'],
+  ['02', 'Uncertainty during travel', 'Without a clear view of what’s next, travellers second-guessed schedules and re-checked the same details over and over on the move.', 'Meera Joshi · Weekend tripper', 'a clear daily plan that keeps the next step always in view.'],
+  ['03', 'Poor access on the go', 'The one detail that mattered was hard to reach fast — especially offline — exactly when a traveller was standing at a gate or a counter.', 'Arjun Rao · Family planner', 'offline-ready access, cached for the moment it’s needed.'],
 ]
 
 /* the mid-fidelity wireframe that dissolves into the finished screen */
@@ -718,9 +657,9 @@ export default function ProjectMLMTv2() {
           <Head n="03" eyebrow="The problem" title="The trip was booked. The information wasn’t." wide
             lead="Booking was solved; the hours after it weren’t. Details landed across a dozen apps and inboxes, so travellers hunted for them under stress — friction that quietly erodes retention and drives avoidable support contacts. Every detail already existed. What was missing was one reliable place to find it." />
           <div className="mv-pchars">
-            {problems.map(([Illus, n, t, d, who, ans], i) => (
+            {problems.map(([n, t, d, who, ans], i) => (
               <Reveal className="mv-pchar" key={n} delay={i * 90}>
-                <Illus />
+                <span className="mv-pchar-figure"><Character /></span>
                 <span className="mv-pchar-n">{n}</span>
                 <h3>{t}</h3>
                 <p>{d}</p>

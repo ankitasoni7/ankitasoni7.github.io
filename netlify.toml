@@ -1,0 +1,10 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# Client-side routing: every unknown path serves the app with a 200, so deep
+# links like /mlmt-v2 work and are indexable (unlike the Pages 404.html trick).
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

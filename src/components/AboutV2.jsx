@@ -150,9 +150,10 @@ export default function AboutV2() {
           {/* Portrait */}
           <article className="abt-card abt-photo">
             <img
-              src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=560&h=820&q=80"
-              alt="Portrait"
+              src="/avatars/ankita.jpg"
+              alt="Ankita Soni"
               loading="lazy"
+              onError={(e) => { e.currentTarget.style.visibility = 'hidden' }}
             />
             <span className="abt-photo-tag">
               <b>Ankita Soni</b>

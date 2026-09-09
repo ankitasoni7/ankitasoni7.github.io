@@ -80,8 +80,8 @@ export default function HomeV2() {
           <Reveal className="hv-portrait" delay={140}>
             <figure className="hv-portrait-frame">
               <img
-                src="/avatars/portrait.jpg"
-                alt="Portrait"
+                src="/avatars/ankita.jpg"
+                alt="Ankita Soni"
                 onError={(e) => { e.currentTarget.style.display = 'none' }}
               />
               <figcaption className="hv-portrait-cap">
